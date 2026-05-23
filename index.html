@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto</title>
     <link rel="icon" href="./assets/logo-C_QQpFK1.svg" type="image/svg+xml" />
-    <script type="module" crossorigin src="./assets/index-pCADAdXI.js"></script>
+    <script type="module" crossorigin src="./assets/index-Rz3--BX4.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DHuy4XUr.css">
   </head>
   <body class="page">
@@ -19,6 +19,7 @@
           src="./assets/logo-C_QQpFK1.svg"
           alt="Логотип проекта место"
           class="logo header__logo"
+          style="cursor: pointer;"
         />
       </header>
       <main class="content">
@@ -54,7 +55,7 @@
                 required
                 minlength="2"
                 maxlength="40"
-                pattern="^[A-Za-zА-Яа-яЁё\-\s]+$"
+                pattern="^(?=.*[A-Za-zА-Яа-яЁё])[A-Za-zА-Яа-яЁё\-\s]+$"
                 data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
               />
               <span class="popup__error" id="user-name-error"></span>
@@ -98,7 +99,7 @@
                 required
                 minlength="2"
                 maxlength="30"
-                pattern="^[A-Za-zА-Яа-яЁё\-\s]+$"
+                pattern="^(?=.*[A-Za-zА-Яа-яЁё])[A-Za-zА-Яа-яЁё\-\s]+$"
                 data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
               />
               <span class="popup__error" id="place-name-error"></span>
@@ -130,6 +131,26 @@
           <button type="button" class="popup__close"></button>
           <img src="" alt="" class="popup__image" />
           <p class="popup__caption"></p>
+        </div>
+      </div>
+
+      <div class="popup popup_type_info">
+        <div class="popup__content popup__content_content_info">
+          <button type="button" class="popup__close"></button>
+          <h3 class="popup__title">Статистика пользователей</h3>
+          <dl class="popup__info"></dl>
+          <p class="popup__text">Все пользователи:</p>
+          <ul class="popup__list"></ul>
+        </div>
+      </div>
+
+      <div class="popup popup_type_confirm">
+        <div class="popup__content">
+          <button type="button" class="popup__close"></button>
+          <h3 class="popup__title">Вы уверены?</h3>
+          <form class="popup__form" name="confirm-delete" novalidate>
+            <button type="submit" class="button popup__button">Да</button>
+          </form>
         </div>
       </div>
 
@@ -176,6 +197,17 @@
           </div>
         </div>
       </li>
+    </template>
+
+    <template id="popup-info-definition-template">
+      <div class="popup__info-item">
+        <dt class="popup__info-term"></dt>
+        <dd class="popup__info-description"></dd>
+      </div>
+    </template>
+
+    <template id="popup-info-user-preview-template">
+      <li class="popup__list-item popup__list-item_type_badge"></li>
     </template>
   </body>
 </html>
